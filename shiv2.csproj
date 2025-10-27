@@ -1,38 +1,45 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <AssemblyTitle>Shiv</AssemblyTitle>
+        <Product>Shiv</Product>
+        <TargetFramework>net481</TargetFramework>
+        <LangVersion>12.0</LangVersion>
+        <MapFileExtensions>true</MapFileExtensions>
+        <OutDir>bin\$(Configuration)_$(Platform)\</OutDir>
 
-  <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
-    <AssemblyName>ShivPlugin</AssemblyName>
-    <RootNamespace>Shiv</RootNamespace>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-  </PropertyGroup>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>embedded</DebugType>
+        <Platforms>x64</Platforms>
+        <ReferencePath Condition="'$(ReferencePath)' == ''">$(HOME)/Desktop/srxs</ReferencePath>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="ExMod.Exiled" Version="9.10.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-    <PackageReference Include="System.Net.Http" Version="4.3.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(USERPROFILE)\sources\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>$(USERPROFILE)\sources\UnityEngine.PhysicsModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>$(USERPROFILE)\sources\Assembly-CSharp-firstpass.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mirror">
-      <HintPath>$(USERPROFILE)\sources\Mirror.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
-
+    <ItemGroup>
+        <PackageReference Include="ExMod.Exiled" Version="9.10.0" />
+        <PackageReference Include="Northwood.LabAPI" Version="1.1.2" />
+        <PackageReference Include="Discord.Net" Version="3.15.3" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Lib.Harmony" Version="2.3.3" />
+        <PackageReference Include="Mono.HttpUtility" Version="1.0.0.1" />
+        <PackageReference Include="YamlDotNet" Version="13.7.1" />
+        
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net481" Version="1.0.3">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        
+        <PackageReference Include="System.Net.Http" Version="4.3.4" />
+        <PackageReference Include="LiteDB" Version="5.0.17" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp" HintPath="$(ReferencePath)/Assembly-CSharp-Publicized.dll" Private="False" />
+        <Reference Include="Assembly-CSharp-firstpass" HintPath="$(ReferencePath)/Assembly-CSharp-firstpass.dll" Private="False" />
+        <Reference Include="UnityEngine.CoreModule" HintPath="$(ReferencePath)/UnityEngine.CoreModule.dll" Private="False" />
+        <Reference Include="UnityEngine.PhysicsModule" HintPath="$(ReferencePath)/UnityEngine.PhysicsModule.dll" Private="False" />
+        <Reference Include="Mirror.dll" HintPath="$(ReferencePath)/Mirror.dll" Private="False" />
+        <Reference Include="ProjectMER.dll" HintPath="$(ReferencePath)/ProjectMER.dll" Private="False" />
+        <Reference Include="AudioPlayer" HintPath="$(ReferencePath)/AudioPlayer.dll" Private="False" />
+    </ItemGroup>
 </Project>
